@@ -1,31 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        
-        <title>Stephen Martyn-Johns Portfolio</title>
+        {% block core_meta %}
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {% endblock %}
+
+        {% block extra_meta %}
+        {% endblock %}
 
         {% load static %}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-        {% block extra_static %}
+
+        {% block core_css %}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+            <link rel="stylesheet" href="{% static 'css/base.css' %}">
         {% endblock %}
+
+        {% block extra_css %}
+        {% endblock %}
+        
+        <title>Stephen Martyn-Johns {% block extra_title %}{% endblock %}</title>
 
     </head>
     <body>
-        {% block navigation %}
-            <nav>
-            </nav>
-        {% endblock %}
+        <header class="container-fluid fixed-top">
+            <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                    <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                        <h2 class="logo-font text-black my-0">Test</h2>
+                    </a>
+                </div>
+            </div>
+        </header>
+        {% include 'includes/main_nav.html' %}
+        {% include 'includes/mobile_nav.html' %}
         {% block content %}
         {% endblock %}
-        {% block contact %}
+        
+        {% block core_js%}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
         {% endblock %}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+        {% block extra_js %}
+        {% endblock %}
     </body>
 </html>
