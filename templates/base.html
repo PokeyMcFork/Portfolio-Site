@@ -27,18 +27,23 @@
     <body>
         <header class="container-fluid fixed-top">
             <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
-                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                <div class="col-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                     <a href="{% url 'home' %}" class="nav-link main-logo-link">
                         <h2 class="logo-font text-black my-0">Test</h2>
                     </a>
                 </div>
+                <div>
+                    <!--page title goes here-->
+                    <h2>Page header - possibly template this</h2>
+                </div>
             </div>
         </header>
-        {% include 'includes/main_nav.html' %}
-        {% include 'includes/mobile_nav.html' %}
-        {% block content %}
-        {% endblock %}
-        
+        <div class="container-fluid">
+            {% include 'includes/main_nav.html' %}
+            {% include 'includes/mobile_nav.html' %}
+            {% block content %}
+            {% endblock %}
+        </div>
         {% block core_js%}
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
