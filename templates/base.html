@@ -26,21 +26,12 @@
     </head>
     <body>
         <header class="container-fluid fixed-top">
-            <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
-                <div class="col-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                    <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                        <h2 class="logo-font text-black my-0">Test</h2>
-                    </a>
-                </div>
-                <div>
-                    <!--page title goes here-->
-                    <h2>Page header - possibly template this</h2>
-                </div>
-            </div>
+            <!--This is where the icon and a lot of whitespace/something interesting goes at the top of the page 
+                (could have overall site nav stuff here? eg. about, contact, work, etc.)-->
+                {% include 'includes/main_nav.html' %}
+                {% include 'includes/mobile_nav.html' %}
         </header>
-        <div class="container-fluid">
-            {% include 'includes/main_nav.html' %}
-            {% include 'includes/mobile_nav.html' %}
+        <div id="main-content" class="container-fluid">
             {% block content %}
             {% endblock %}
         </div>
